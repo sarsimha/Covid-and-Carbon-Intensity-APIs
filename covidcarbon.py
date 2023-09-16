@@ -40,7 +40,6 @@ commonRegionData = {
 def getSingleDate(date: str, regionName: str):       
     try:
         regionLower = regionName.lower()
-        print(regionLower)
         if (regionLower in commonRegionData):
             if(commonRegionData[regionLower]["both"] == False):
                 abort(404, "Region does not exist in Covid and Carbon Databases")
@@ -68,7 +67,6 @@ def getSingleDate(date: str, regionName: str):
 def getRangeDates(fromDate: str, toDate: str, region: str):
     try:
         regionLower = region.lower()
-        print(regionLower)
         if (regionLower in commonRegionData):
             if(commonRegionData[regionLower]["both"] == False):
                abort(404, "Region does not exist in Covid and Carbon Databases")
@@ -78,7 +76,6 @@ def getRangeDates(fromDate: str, toDate: str, region: str):
             code = reg["areaCode"]
             formattedStart = datetime.strptime(fromDate[0:10], '%Y-%m-%d').date()
             formattedEnd = datetime.strptime(toDate[0:10], '%Y-%m-%d').date()
-            print(formattedEnd)
             carbonApiURL = CARBON_INTENSITY_API_URL + fromDate + "/" + toDate + "/regionid/" + regionId
             covidAPUIRL = COVID19_API_URL + areatype + "/" + code
             carbonData = requests.get(carbonApiURL).json()
