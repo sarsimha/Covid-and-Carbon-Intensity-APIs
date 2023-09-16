@@ -9,13 +9,6 @@ app = Flask(__name__)
 CARBON_INTENSITY_API_URL = "https://api.carbonintensity.org.uk/regional/intensity/"
 COVID19_API_URL = "https://api.coronavirus.data.gov.uk/generic/metric_availability/"
 
-date_str = '2022-09-18'
-
-date_object = datetime.strptime(date_str, '%Y-%m-%d').date()
-print(type(date_object))
-print(date_object)  # printed in default format
-
-
 commonRegionData = {
     "north scotland": {"region": "1", "both": False},
     "south scotland": {"region": "2", "both": False},
